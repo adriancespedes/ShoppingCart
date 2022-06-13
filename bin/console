@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use App\Product as Product;
+use App\Voucher as Voucher;
+use App\Basket as Basket;
+
+echo "Example 1". PHP_EOL;
+
+$productA = new Product("Product A", 10);
+$productB = new Product("Product B", 8);
+$productC = new Product("Product C", 12);
+
+//10% off discount voucher for the second unit applying only to Product A
+$voucherV = new Voucher("Voucher V", 0.1, "percent", $productA, 2);
+
+//5€ off discount on product type B
+$voucherR = new Voucher("Voucher R", 5, "amount", $productB, 1);
+
+//5% discount on a cart value over 40€
+$voucherS = new Voucher("Voucher S", 5, "percent", null, 40);
+
+$basket = new Basket();
+$basket->addProduct($productA);
+$basket->addProduct($productC);
+$basket->addVoucher($voucherS);
+$basket->addProduct($productA);
+$basket->addVoucher($voucherV);
+$basket->addProduct($productB);
+
+echo 'Product A added + Product C added + Voucher S added + Product A added + Voucher V added + Product B added.' . PHP_EOL;
+echo $basket->__toString() . PHP_EOL;
