@@ -21,42 +21,26 @@ class Voucher
         $this->discountedRuleAmount = $discountedRuleAmount;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return float
-     */
     public function getDiscountValue(): float
     {
         return $this->discountValue;
     }
 
-    /**
-     * @return string
-     */
     public function getDiscountValueModifier(): string
     {
         return $this->discountValueModifier;
     }
 
-
-    /**
-     * @return Product|null
-     */
     public function getDiscountedProduct(): ?Product
     {
         return $this->discountedProduct;
     }
 
-    /**
-     * @return int
-     */
     public function getDiscountedRuleAmount(): int
     {
         return $this->discountedRuleAmount;

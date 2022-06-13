@@ -36,11 +36,6 @@ class Basket
         }
     }
 
-    /**
-     * @param \App\Voucher $voucher
-     * @return void
-     * @throws \Exception
-     */
     private function voucherExpectsAProductInTheBasket(\App\Voucher $voucher): bool
     {
         if (empty($voucher->getDiscountedProduct())) {
