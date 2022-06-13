@@ -1,0 +1,8 @@
+vendor
+composer.phar
+
+.idea
+.project
+.buildpath
+.settings
+.phpunit.result.cache
